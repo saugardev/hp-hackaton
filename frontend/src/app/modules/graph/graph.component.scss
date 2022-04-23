@@ -1,0 +1,25 @@
+.wrap {
+  width: 100%;
+  display: inline-flex;
+  margin: 20px;
+}
+
+.left-box-title {
+  width: 60%;
+  border: 20px;
+}
+
+.right-box-title {
+  width: 30%;
+  margin-left: 60px;
+}
+
+.left-box-content, .right-box-content {
+  margin-top: 20px;
+  height: 65vh;
+}
+
+mat-card {
+  width: 100%;
+  height: 100%;
+}

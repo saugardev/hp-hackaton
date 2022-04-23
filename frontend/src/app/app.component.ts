@@ -10,5 +10,5 @@ import {Component} from '@angular/core';
  * Root Angular component
  */
 export class AppComponent {
-  title = 'HP TECH CHALLENGE';
+  title = 'HP_TECH_CHALLENGE';
 }

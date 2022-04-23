@@ -1,0 +1,13 @@
+.outlet {
+  width: 94vw;
+  height: 88vh;
+  margin: 0 auto;
+  margin-top: 20px;
+  z-index: 0;
+}
+
+.header {
+  box-shadow: 0 2px 2px -2px black;
+  position: sticky;
+  z-index: 1;
+}

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "HP TECH CHALLENGE": {
+    "HP_TECH_CHALLENGE": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/HP TECH CHALLENGE",
+            "outputPath": "dist/HP_TECH_CHALLENGE",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/leaflet/dist/leaflet.css",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
@@ -73,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "HP TECH CHALLENGE:build:production"
+              "browserTarget": "HP_TECH_CHALLENGE:build:production"
             },
             "development": {
-              "browserTarget": "HP TECH CHALLENGE:build:development"
+              "browserTarget": "HP_TECH_CHALLENGE:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "HP TECH CHALLENGE:build"
+            "browserTarget": "HP_TECH_CHALLENGE:build"
           }
         },
         "test": {
@@ -109,11 +110,11 @@
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "HP TECH CHALLENGE:serve"
+            "devServerTarget": "HP_TECH_CHALLENGE:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "HP TECH CHALLENGE:serve:production"
+              "devServerTarget": "HP_TECH_CHALLENGE:serve:production"
             }
           }
         },
@@ -127,13 +128,13 @@
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "HP TECH CHALLENGE:serve",
+            "devServerTarget": "HP_TECH_CHALLENGE:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "HP TECH CHALLENGE:serve:production"
+              "devServerTarget": "HP_TECH_CHALLENGE:serve:production"
             }
           }
         },
@@ -149,7 +150,7 @@
       }
     }
   },
-  "defaultProject": "HP TECH CHALLENGE",
+  "defaultProject": "HP_TECH_CHALLENGE",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }

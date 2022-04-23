@@ -1,0 +1,35 @@
+<div style="display: flex; flex-flow: column; height: 100%;">
+  <mat-card>
+    <div style="justify-content: stretch;">
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Tipo</mat-label>
+          <input type="text"
+                  placeholder="Selecciona una"
+                  aria-label="Tipo"
+                  matInput
+                  [formControl]="myControl"
+                  [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+    <div>
+      <button mat-button (click)="updateMap()">Buscar</button>
+    </div>
+  </mat-card>
+  <mat-card style="margin-top: 10px; flex-grow: 1; overflow-y: scroll;">
+    <mat-card style="height: 50px; margin-bottom: 10px;"></mat-card>
+    <mat-card style="height: 50px; margin-bottom: 10px;"></mat-card>
+    <mat-card style="height: 50px; margin-bottom: 10px;"></mat-card>
+    <mat-card style="height: 50px; margin-bottom: 10px;"></mat-card>
+    <mat-card style="height: 50px; margin-bottom: 10px;"></mat-card>
+    <mat-card style="height: 50px; margin-bottom: 10px;"></mat-card>
+    <mat-card style="height: 50px; margin-bottom: 10px;"></mat-card>
+  </mat-card>
+</div>
+

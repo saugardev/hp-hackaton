@@ -1,5 +1,5 @@
 {
-  "name": "HP TECH CHALLENGE",
+  "name": "HP_TECH_CHALLENGE",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -26,6 +26,8 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
+    "@types/leaflet": "^1.7.9",
+    "leaflet": "^1.8.0",
     "material-components-web": "^13.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
@@ -45,6 +47,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
+    "autoprefixer": "^10.4.4",
     "cypress": "latest",
     "eslint": "^8.2.0",
     "eslint-config-google": "^0.14.0",
@@ -54,6 +57,8 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.24",
     "typescript": "~4.4.3"
   }
 }
