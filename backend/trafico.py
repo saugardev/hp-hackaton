@@ -6,8 +6,9 @@ import os
 
 
 #Obtencion del datashet a partir del archivo python
-path = os.path.abspath(__file__)
-os.chdir(path + "../../../Datasets")
+filePath = os.path.abspath(__file__)
+datasetPath = os.chdir(path + "../../../Datasets/Trafico")
+print(os.listdir(datasetPath))
 
 
 '''
