@@ -35,3 +35,37 @@ mat-card {
   box-shadow: 0 3px 2px -2px black;
   border-radius: 5px;
 }
+
+@media (max-width: 1024px) {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-box-title {
+    margin-left: 0;
+    margin-top: 50px;
+  }
+
+  .left-box-title, .right-box-title {
+    width: 85vw;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-box-title {
+    margin-left: 0;
+    margin-top: 50px;
+  }
+
+  .left-box-title, .right-box-title {
+    width: 85%;
+  }
+
+}
