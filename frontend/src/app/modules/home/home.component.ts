@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import {AfterViewInit, Component} from '@angular/core';
 import * as L from 'leaflet';
+import 'leaflet.utm';
 
 type coords = {
   x: number;
@@ -66,7 +67,13 @@ export class HomeComponent implements AfterViewInit {
       {x: 25, y: 35},
       {x: 30, y: -90},
     ]
-
+    const item = L.utm({x: 447894.521, y: 4476691.236, zone: 30, southHemi: false, band: "N"});
+    const coord = item.latLng();
+    array.push({
+      x: coord.lat,
+      y: coord.lng
+    })
+    console.log(coord);
     this.markers = [];
     const icon = L.icon({
       iconUrl: 'assets/marker.png',
