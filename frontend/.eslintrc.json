@@ -16,9 +16,6 @@
         "createDefaultProgram": true
       },
       "extends": [
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates",
-        "google"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
