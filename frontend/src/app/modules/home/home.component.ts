@@ -46,12 +46,19 @@ export class HomeComponent implements AfterViewInit {
     this.map = L.map('map', {
       center: [39.8282, -98.5795],
       zoom: 3,
-      attributionControl: false
+      attributionControl: false,
+      boxZoom: true,
+      maxBoundsViscosity: 0.6,
+      minZoom: 2,
+      maxBounds: [
+        [90, -180],
+        [-90, 180]
+      ],
     });
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
-      minZoom: 3,
+      minZoom: 2,
     });
 
     const array = [
