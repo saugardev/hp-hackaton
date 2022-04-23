@@ -25,12 +25,12 @@ dataset.drop(['LAS01', 'LAS10', 'LAS50', 'LAS90', 'LAS99'], axis=1, inplace=True
 
 
 #Generamos los documentos para guardar en la base de datos
-data = dataset.to_json(orient="records")
+data = dataset.to_dict(orient="records")
 print(data)
 
 myClient = pymongo.MongoClient("mongodb+srv://root:root@cluster0.jntcr.mongodb.net/Anthem?retryWrites=true&w=majority")
 
-#mycol= myClient.Anthem.ContAcus
-#with open('data.json') as jsonfile:
-    #c = json
-    #mycol.insert_many(c)
+mycol= myClient.Anthem.ContAcus
+#for element in data['']:
+
+mycol.insert_many(data)
