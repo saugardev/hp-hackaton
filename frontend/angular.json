@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "portfolio": {
+    "HP TECH CHALLENGE": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/portfolio",
+            "outputPath": "dist/HP TECH CHALLENGE",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "portfolio:build:production"
+              "browserTarget": "HP TECH CHALLENGE:build:production"
             },
             "development": {
-              "browserTarget": "portfolio:build:development"
+              "browserTarget": "HP TECH CHALLENGE:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "portfolio:build"
+            "browserTarget": "HP TECH CHALLENGE:build"
           }
         },
         "test": {
@@ -109,11 +109,11 @@
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "portfolio:serve"
+            "devServerTarget": "HP TECH CHALLENGE:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "portfolio:serve:production"
+              "devServerTarget": "HP TECH CHALLENGE:serve:production"
             }
           }
         },
@@ -127,13 +127,13 @@
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "portfolio:serve",
+            "devServerTarget": "HP TECH CHALLENGE:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "portfolio:serve:production"
+              "devServerTarget": "HP TECH CHALLENGE:serve:production"
             }
           }
         },
@@ -149,7 +149,7 @@
       }
     }
   },
-  "defaultProject": "portfolio",
+  "defaultProject": "HP TECH CHALLENGE",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }
