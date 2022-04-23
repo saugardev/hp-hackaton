@@ -27,8 +27,8 @@ dataset.drop(['ACCIONA', 'Taxify', 'KOKO', 'UFO', 'RIDECONGA', 'FLASH', 'LIME', 
 data = dataset.to_dict(orient="records")
 print(data)
 
-#myClient = pymongo.MongoClient("mongodb+srv://root:root@cluster0.jntcr.mongodb.net/Anthem?retryWrites=true&w=majority")
+myClient = pymongo.MongoClient("mongodb+srv://root:root@cluster0.jntcr.mongodb.net/Anthem?retryWrites=true&w=majority")
 
-#mycol= myClient.Anthem.Patinetes
+mycol= myClient.Anthem.Patinetes
 
-#mycol.insert_many(data)
+mycol.insert_many(data)
