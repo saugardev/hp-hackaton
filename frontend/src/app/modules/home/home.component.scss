@@ -24,6 +24,16 @@ mat-card {
   height: 100%;
 }
 
+.mat-card-titulos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-card-title {
+  font-size: 19px;
+}
+
 .map-frame {
   background-color: grey;
   height: 100%;
