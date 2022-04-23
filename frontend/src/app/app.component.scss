@@ -1,6 +1,14 @@
+.background {
+  background-color: rgb(247, 248, 255);
+}
+
 .outlet {
   width: 94vw;
   height: 85vh;
   margin: 0 auto;
   margin-top: 20px;
+}
+
+.header {
+  box-shadow: 0 2px 2px -2px black;
 }
