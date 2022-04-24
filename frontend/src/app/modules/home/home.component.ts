@@ -1,3 +1,4 @@
+import { HttpService } from './../../core/http/http.service';
 import { HttpClient } from '@angular/common/http';
 import {AfterViewInit, Component} from '@angular/core';
 import * as L from 'leaflet';
@@ -20,6 +21,7 @@ export class HomeComponent implements AfterViewInit {
 
   private _map: L.Map | undefined;
   private _markers: L.Marker[] | undefined;
+  private data: any;
 
   public get map(): L.Map {
     return this._map as L.Map;
@@ -34,13 +36,16 @@ export class HomeComponent implements AfterViewInit {
     this._markers = value;
   }
 
-  constructor() {
+  constructor(private httpService: HttpService) {
     this._map = undefined;
     this._markers = undefined;
   }
 
   ngAfterViewInit(): void {
     this.initMap();
+    this.httpService.getAccidentabilidad().subscribe(res => {
+      this.httpService.accidentablididad = res;
+    });
   }
 
   private initMap(): void {
