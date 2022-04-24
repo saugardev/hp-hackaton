@@ -44,7 +44,7 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.initMap();
     this.httpService.getAccidentabilidad().subscribe(res => {
-      this.httpService.accidentablididad = res;
+      this.httpService.accidentablididad.next(res);
     });
   }
 
@@ -78,7 +78,6 @@ export class HomeComponent implements AfterViewInit {
       x: coord.lat,
       y: coord.lng
     })
-    console.log(coord);
     this.markers = [];
     const icon = L.icon({
       iconUrl: 'assets/marker.png',

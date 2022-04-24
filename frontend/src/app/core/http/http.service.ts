@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 export class HttpService {
 
   private apiURL = "http://3.122.113.193:3000";
-  public accidentablididad: any;
+  public accidentablididad = new BehaviorSubject<any>([]);
 
   constructor(private httpClient: HttpClient) {
   }
