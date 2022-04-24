@@ -13,7 +13,7 @@ export class DeviceInfoComponent implements OnInit {
   public options = [
     'Paradas de autobús',
     'Trenes de cercanías',
-    'Trenes interurbanos',
+    'Autobuses interurbanos',
     'Contenedores de basura',
     'Estaciones de metro',
     'Paradas de taxi',
