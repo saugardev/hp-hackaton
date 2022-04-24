@@ -16,6 +16,11 @@
   font-size: 13px;
 }
 
+.mat-card-indv {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
 .div-button-style {
   display: flex;
   justify-content: center;
@@ -25,4 +30,10 @@
 .button-style {
   border: 1px solid #8a8989;
   background-color: #ecebeba3;
+}
+
+.tasaAccidentesText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

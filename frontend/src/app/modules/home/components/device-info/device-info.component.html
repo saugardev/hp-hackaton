@@ -22,10 +22,11 @@
       <button mat-button (click)="updateMap()" class="button-style">Buscar</button>
     </div>
   </mat-card>
-  <mat-card style="margin-top: 10px; flex-grow: 1; overflow-y: scroll;">
-    <mat-card style="height: 60px; margin-bottom: 10px;" *ngFor="let datum of cardData | keyvalue" (click)="showIcons(datum.key)">
+  <mat-card style="margin-top: 10px; flex-grow: 1; overflow-y: scroll;" class="mat-card-accidentalidad">
+    <h3 class="tasaAccidentesText">TASA DE ACCIDENTES</h3>
+    <mat-card class="mat-card-indv" *ngFor="let datum of cardData | keyvalue" (click)="showIcons(datum.key)">
       <mat-card-title>{{datum.key}}</mat-card-title>
-      <mat-card-content>Accidentes {{datum.value}}</mat-card-content>
+      <mat-card-content>Accidentes: {{datum.value}}</mat-card-content>
     </mat-card>
   </mat-card>
 </div>
