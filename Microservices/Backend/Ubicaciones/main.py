@@ -1,15 +1,9 @@
-import json
 import re
 
-import gpxpy
 import numpy as np
 import pymongo
 import pandas as pd
 import os
-import pymongo
-import xmltodict as xmltodict
-from gpx_converter import Converter
-
 #Conexion con mongo.
 
 client = pymongo.MongoClient("mongodb+srv://root:root@cluster0.jntcr.mongodb.net/Anthem?retryWrites=true&w=majority")
