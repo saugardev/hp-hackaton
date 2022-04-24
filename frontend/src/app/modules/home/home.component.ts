@@ -111,7 +111,8 @@ export class HomeComponent implements AfterViewInit {
             const coord = item.latLng();
             markerCoords.push({
               x: coord.lat,
-              y: coord.lng
+              y: coord.lng,
+              data: "Localización: " + datum.localizacion + "<br><br>" + "Descripción: " + datum.tipo_accidente
             });
           }
         }
@@ -126,7 +127,7 @@ export class HomeComponent implements AfterViewInit {
       for (const marker of markerCoords) {
         const obj = new L.Marker([marker.x, marker.y], {
           icon: icon,
-        });
+        }).bindPopup(marker.data);
         obj.addTo(this.markerCluster);
       }
       this.markerCluster.addTo(this.map);
