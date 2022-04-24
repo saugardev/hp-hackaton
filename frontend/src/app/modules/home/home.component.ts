@@ -45,6 +45,24 @@ export class HomeComponent implements AfterViewInit {
     this.httpService.getAccidentabilidad().subscribe(res => {
       this.httpService.accidentablididad.next(res);
     });
+    this.httpService.buses.subscribe(() => {
+      this.loadBuses();
+    });
+    this.httpService.cercanias.subscribe(() => {
+      this.loadCercanias();
+    });
+    this.httpService.interurbano.subscribe(() => {
+      this.loadInterurbanos();
+    });
+    this.httpService.contenedores.subscribe(() => {
+      this.loadContenedores();
+    });
+    this.httpService.metro.subscribe(() => {
+      this.loadMetro();
+    })
+    this.httpService.taxi.subscribe(() => {
+      this.loadTaxi();
+    })
   }
 
   private initMap(): void {
@@ -66,11 +84,6 @@ export class HomeComponent implements AfterViewInit {
       iconAnchor: [15, 0],
     });
 
-    const obj = new L.Marker([10, 10], {
-      icon: icon,
-    });
-    this.markers?.push(obj.addTo(this.map))
-
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       minZoom: 2,
@@ -88,7 +101,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const markerCoords = [];
-      this.markers = []
+      this.markers = [];
       for (const datum of this.httpService.accidentablididad.value) {
         try {
           if (datum.distrito === res) {
@@ -110,11 +123,6 @@ export class HomeComponent implements AfterViewInit {
         iconAnchor: [15, 0],
       });
 
-      const obj = new L.Marker([10, 10], {
-        icon: icon,
-      });
-      this.markers?.push(obj.addTo(this.map))
-
       for (const marker of markerCoords) {
         const obj = new L.Marker([marker.x, marker.y], {
           icon: icon,
@@ -123,5 +131,137 @@ export class HomeComponent implements AfterViewInit {
       }
       this.markerCluster.addTo(this.map);
     });
+  }
+
+  private loadBuses(): void {
+    if (this.httpService.buses.value !== 0) {
+      this.map.removeLayer(this.markerCluster);
+      this.markerCluster = (L as any).markerClusterGroup({
+        spiderfyOnMaxZoom: false,
+        disableClusteringAtZoom: 16
+      });
+      const icon = L.icon({
+        iconUrl: 'assets/marker.png',
+        iconSize: [30, 30],
+        iconAnchor: [15, 0]
+      })
+      for (const datum of this.httpService.buses.value) {
+        const marker = new L.Marker([datum.latitude, datum.longitude], {
+          icon: icon,
+        });
+        marker.addTo(this.markerCluster);
+      }
+      this.map.addLayer(this.markerCluster);
+    }
+  }
+
+  private loadCercanias(): void {
+    if (this.httpService.cercanias.value !== 0) {
+      this.map.removeLayer(this.markerCluster);
+      this.markerCluster = (L as any).markerClusterGroup({
+        spiderfyOnMaxZoom: false,
+        disableClusteringAtZoom: 16
+      });
+      const icon = L.icon({
+        iconUrl: 'assets/marker.png',
+        iconSize: [30, 30],
+        iconAnchor: [15, 0]
+      })
+      for (const datum of this.httpService.cercanias.value) {
+        const marker = new L.Marker([datum.latitude, datum.longitude], {
+          icon: icon,
+        });
+        marker.addTo(this.markerCluster);
+      }
+      this.map.addLayer(this.markerCluster);
+    }
+  }
+
+  private loadInterurbanos(): void {
+    if (this.httpService.interurbano.value !== 0) {
+      this.map.removeLayer(this.markerCluster);
+      this.markerCluster = (L as any).markerClusterGroup({
+        spiderfyOnMaxZoom: false,
+        disableClusteringAtZoom: 16
+      });
+      const icon = L.icon({
+        iconUrl: 'assets/marker.png',
+        iconSize: [30, 30],
+        iconAnchor: [15, 0]
+      })
+      for (const datum of this.httpService.interurbano.value) {
+        const marker = new L.Marker([datum.latitude, datum.longitude], {
+          icon: icon,
+        });
+        marker.addTo(this.markerCluster);
+      }
+      this.map.addLayer(this.markerCluster);
+    }
+  }
+
+  private loadContenedores(): void {
+    if (this.httpService.contenedores.value !== 0) {
+      this.map.removeLayer(this.markerCluster);
+      this.markerCluster = (L as any).markerClusterGroup({
+        spiderfyOnMaxZoom: false,
+        disableClusteringAtZoom: 16
+      });
+      const icon = L.icon({
+        iconUrl: 'assets/marker.png',
+        iconSize: [30, 30],
+        iconAnchor: [15, 0]
+      })
+      for (const datum of this.httpService.contenedores.value) {
+        const marker = new L.Marker([datum.LATITUD, datum.LONGITUD], {
+          icon: icon,
+        });
+        marker.addTo(this.markerCluster);
+      }
+      this.map.addLayer(this.markerCluster);
+    }
+  }
+
+  private loadMetro(): void {
+    if (this.httpService.metro.value !== 0) {
+      this.map.removeLayer(this.markerCluster);
+      this.markerCluster = (L as any).markerClusterGroup({
+        spiderfyOnMaxZoom: false,
+        disableClusteringAtZoom: 16
+      });
+      const icon = L.icon({
+        iconUrl: 'assets/marker.png',
+        iconSize: [30, 30],
+        iconAnchor: [15, 0]
+      })
+      for (const datum of this.httpService.metro.value) {
+        const marker = new L.Marker([datum.latitude, datum.longitude], {
+          icon: icon,
+        });
+        marker.addTo(this.markerCluster);
+      }
+      this.map.addLayer(this.markerCluster);
+    }
+  }
+
+  private loadTaxi(): void {
+    if (this.httpService.taxi.value !== 0) {
+      this.map.removeLayer(this.markerCluster);
+      this.markerCluster = (L as any).markerClusterGroup({
+        spiderfyOnMaxZoom: false,
+        disableClusteringAtZoom: 16
+      });
+      const icon = L.icon({
+        iconUrl: 'assets/marker.png',
+        iconSize: [30, 30],
+        iconAnchor: [15, 0]
+      })
+      for (const datum of this.httpService.taxi.value) {
+        const marker = new L.Marker([datum.latitude, datum.longitude], {
+          icon: icon,
+        });
+        marker.addTo(this.markerCluster);
+      }
+      this.map.addLayer(this.markerCluster);
+    }
   }
 }
