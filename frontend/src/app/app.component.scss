@@ -12,27 +12,6 @@
   z-index: 1;
 }
 
-
-.footer-div {
-  display: flex;
-}
-
-.footer-texto {
-  position: absolute;
-  bottom: 0;
-  // position: absolute;
-  // bottom: 0;
-  
-  // //justify-content: center;
-  // align-items: center;
-  // padding: 20px;
-  // font-size: large;
-  // color: #14ac84;
-  // background-color: rgb(33, 33, 33);
-  // //margin-top: auto;
-  
-}
-
 .logo {
   height: 100%;
   width: 5%;
@@ -41,6 +20,7 @@
 
 .empresa {
   color: #14ac84;
+  margin-top: 0.75%;
 }
 
 .header-color {
