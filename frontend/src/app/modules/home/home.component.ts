@@ -141,6 +141,8 @@ export class HomeComponent implements AfterViewInit {
         spiderfyOnMaxZoom: false,
         disableClusteringAtZoom: 16
       });
+      const markerCoords = [];
+      this.markers = [];
       const icon = L.icon({
         iconUrl: 'assets/img/parada-de-autobus.png',
         iconSize: [30, 30],
@@ -149,7 +151,7 @@ export class HomeComponent implements AfterViewInit {
       for (const datum of this.httpService.buses.value) {
         const marker = new L.Marker([datum.latitude, datum.longitude], {
           icon: icon,
-        });
+        }).bindPopup(datum.name);
         marker.addTo(this.markerCluster);
       }
       this.map.addLayer(this.markerCluster);
@@ -171,7 +173,7 @@ export class HomeComponent implements AfterViewInit {
       for (const datum of this.httpService.cercanias.value) {
         const marker = new L.Marker([datum.latitude, datum.longitude], {
           icon: icon,
-        });
+        }).bindPopup(datum.name);
         marker.addTo(this.markerCluster);
       }
       this.map.addLayer(this.markerCluster);
@@ -193,7 +195,7 @@ export class HomeComponent implements AfterViewInit {
       for (const datum of this.httpService.interurbano.value) {
         const marker = new L.Marker([datum.latitude, datum.longitude], {
           icon: icon,
-        });
+        }).bindPopup(datum.name);
         marker.addTo(this.markerCluster);
       }
       this.map.addLayer(this.markerCluster);
@@ -215,7 +217,7 @@ export class HomeComponent implements AfterViewInit {
       for (const datum of this.httpService.contenedores.value) {
         const marker = new L.Marker([datum.LATITUD, datum.LONGITUD], {
           icon: icon,
-        });
+        }).bindPopup(datum['Tipo Contenedor']+"<br><br>"+datum['Nombre']);
         marker.addTo(this.markerCluster);
       }
       this.map.addLayer(this.markerCluster);
@@ -237,7 +239,7 @@ export class HomeComponent implements AfterViewInit {
       for (const datum of this.httpService.metro.value) {
         const marker = new L.Marker([datum.latitude, datum.longitude], {
           icon: icon,
-        });
+        }).bindPopup(datum.name);
         marker.addTo(this.markerCluster);
       }
       this.map.addLayer(this.markerCluster);
@@ -259,7 +261,7 @@ export class HomeComponent implements AfterViewInit {
       for (const datum of this.httpService.taxi.value) {
         const marker = new L.Marker([datum.latitude, datum.longitude], {
           icon: icon,
-        });
+        }).bindPopup(datum['name']);
         marker.addTo(this.markerCluster);
       }
       this.map.addLayer(this.markerCluster);
