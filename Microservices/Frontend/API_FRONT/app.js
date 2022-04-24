@@ -133,7 +133,16 @@ client.connect(open => {
         res.send(datos);
         });
     });
-
+    app.get('/contenedores', function(req, res){
+        const collection = client.db("Anthem").collection("Contenedores");
+        collection.find().toArray((error, datos) => {
+            if(error) {
+                console.log(error);
+                res.send('');
+            }
+            res.send(datos);
+            });
+        });
 
   //client.close();
 });

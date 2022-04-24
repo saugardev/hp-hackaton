@@ -111,14 +111,15 @@ export class HomeComponent implements AfterViewInit {
             const coord = item.latLng();
             markerCoords.push({
               x: coord.lat,
-              y: coord.lng
+              y: coord.lng,
+              data: "Localización: " + datum.localizacion + "<br><br>" + "Descripción: " + datum.tipo_accidente
             });
           }
         }
         catch (e) {}
       }
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/marker.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0],
       });
@@ -126,7 +127,7 @@ export class HomeComponent implements AfterViewInit {
       for (const marker of markerCoords) {
         const obj = new L.Marker([marker.x, marker.y], {
           icon: icon,
-        });
+        }).bindPopup(marker.data);
         obj.addTo(this.markerCluster);
       }
       this.markerCluster.addTo(this.map);
@@ -141,7 +142,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/parada-de-autobus.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
@@ -163,7 +164,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/tren.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
@@ -185,7 +186,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/autobus.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
@@ -207,7 +208,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/contenedor-de-basura.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
@@ -229,7 +230,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/metro.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
@@ -251,7 +252,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/parada-de-taxi.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })

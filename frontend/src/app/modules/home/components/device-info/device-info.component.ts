@@ -85,7 +85,7 @@ export class DeviceInfoComponent implements OnInit {
     if (this.myControl.value === 'Trenes de cercanías') {
       this.setCercanias();
     }
-    if (this.myControl.value === 'Trenes interurbanos') {
+    if (this.myControl.value === 'Autobuses interurbanos') {
       this.setInterurbanos();
     }
     if (this.myControl.value === 'Contenedores de basura') {
