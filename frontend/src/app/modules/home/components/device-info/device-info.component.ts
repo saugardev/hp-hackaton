@@ -10,7 +10,15 @@ import { FormControl } from '@angular/forms';
 export class DeviceInfoComponent implements OnInit {
 
   public myControl = new FormControl();
-  public options: any = [];
+  public options = [
+    'Número de accidentes',
+    'Paradas de autobús',
+    'Trenes de cercanías',
+    'Trenes interurbanos',
+    'Contenedores de basura',
+    'Estaciones de metro',
+    'Paradas de taxi',
+  ];
   public cardData = new Map();
   constructor(private httpService: HttpService) { }
 
@@ -20,10 +28,8 @@ export class DeviceInfoComponent implements OnInit {
 
   private setAccidentablididad(): void {
     this.httpService.accidentablididad.subscribe(res => {
-      const options = new Set();
       for (const datum of res) {
         if (datum.distrito !== null) {
-          options.add(datum.distrito);
           if (this.cardData.has(datum.distrito)) {
             this.cardData.set(datum.distrito, this.cardData.get(datum.distrito) + 1);
           }
@@ -32,7 +38,6 @@ export class DeviceInfoComponent implements OnInit {
           }
         }
       }
-      this.options = options;
     });
   }
 
@@ -42,6 +47,7 @@ export class DeviceInfoComponent implements OnInit {
 
   public showIcons(distrito: string): void {
     console.log(distrito);
+
     this.httpService.icons.next(distrito);
   }
 }
