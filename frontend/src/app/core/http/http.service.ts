@@ -9,6 +9,7 @@ export class HttpService {
 
   private apiURL = "http://3.122.113.193:3000";
   public accidentablididad = new BehaviorSubject<any>([]);
+  public icons = new BehaviorSubject<string>("");
 
   constructor(private httpClient: HttpClient) {
   }

@@ -21,7 +21,6 @@ export class HomeComponent implements AfterViewInit {
 
   private _map: L.Map | undefined;
   private _markers: L.Marker[] | undefined;
-  private data: any;
 
   public get map(): L.Map {
     return this._map as L.Map;
@@ -61,39 +60,63 @@ export class HomeComponent implements AfterViewInit {
         [-90, 180]
       ],
     });
-
-    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 2,
-    });
-
-    const array = [
-      {x: 20, y: 30},
-      {x: 25, y: 35},
-      {x: 30, y: -90},
-    ]
-    const item = L.utm({x: 447894.521, y: 4476691.236, zone: 30, southHemi: false, band: "N"});
-    const coord = item.latLng();
-    array.push({
-      x: coord.lat,
-      y: coord.lng
-    })
-    this.markers = [];
     const icon = L.icon({
       iconUrl: 'assets/marker.png',
       iconSize: [30, 30],
       iconAnchor: [15, 0],
     });
-    for (const marker of array) {
 
-      const obj = new L.Marker([marker.x, marker.y], {
+    const obj = new L.Marker([10, 10], {
+      icon: icon,
+    });
+    this.markers?.push(obj.addTo(this.map))
+
+    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      minZoom: 2,
+    });
+    this.waitForIcons();
+    tiles.addTo(this.map);
+  }
+
+  private waitForIcons(): void {
+    this.httpService.icons.subscribe(res => {
+      if (this.httpService.icons.value === "") return;
+      const markerCoords = [];
+      this.markers = []
+      for (const datum of this.httpService.accidentablididad.value) {
+        try {
+          if (datum.distrito === res) {
+            console.log(res);
+            const x = parseFloat(datum.coordenada_x_utm.replace(",", "."));
+            const y = parseFloat(datum.coordenada_y_utm.replace(",", "."));
+            const item = L.utm({x, y, zone: 30, southHemi: false, band: "N"});
+            const coord = item.latLng();
+            markerCoords.push({
+              x: coord.lat,
+              y: coord.lng
+            });
+          }
+        }
+        catch (e) {}
+      }
+      const icon = L.icon({
+        iconUrl: 'assets/marker.png',
+        iconSize: [30, 30],
+        iconAnchor: [15, 0],
+      });
+
+      const obj = new L.Marker([10, 10], {
         icon: icon,
       });
-      this.markers?.push(obj.addTo(this.map));
-    }
+      this.markers?.push(obj.addTo(this.map))
 
-    tiles.addTo(this.map);
-
-
+      for (const marker of markerCoords) {
+        const obj = new L.Marker([marker.x, marker.y], {
+          icon: icon,
+        });
+        this.markers?.push(obj.addTo(this.map));
+      }
+    });
   }
 }

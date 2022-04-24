@@ -15,6 +15,10 @@ export class DeviceInfoComponent implements OnInit {
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
+    this.setAccidentablididad();
+  }
+
+  private setAccidentablididad(): void {
     this.httpService.accidentablididad.subscribe(res => {
       const options = new Set();
       for (const datum of res) {
@@ -34,5 +38,10 @@ export class DeviceInfoComponent implements OnInit {
 
   public updateMap(): void {
     this.myControl.reset();
+  }
+
+  public showIcons(distrito: string): void {
+    console.log(distrito);
+    this.httpService.icons.next(distrito);
   }
 }
