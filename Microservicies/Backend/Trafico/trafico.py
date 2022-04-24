@@ -6,10 +6,13 @@ import pymongo
 
 client = pymongo.MongoClient("mongodb+srv://root:root@cluster0.jntcr.mongodb.net/Anthem?retryWrites=true&w=majority")
 myCol = client.Anthem.Trafico
+myCol.drop()
 
 #Obtencion del datashet a partir del archivo python
 
+#Si se quiere subir a docker, modificar los paths
 filePath = os.path.abspath(__file__)
+print(filePath)
 datasetTraficoPath = os.chdir(filePath + "/../../../../Datasets/Trafico")
 files = os.listdir(datasetTraficoPath)
 
@@ -28,4 +31,5 @@ for file in files:
         jsonData = csvTraficoFiltrado.to_dict(orient="records")
         #print(jsonData)
 
-        myCol.insert_many(jsonData)
+        if len(csvTraficoFiltrado) > 0:
+            myCol.insert_many(jsonData)
