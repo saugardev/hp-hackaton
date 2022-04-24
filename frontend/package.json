@@ -1,6 +1,11 @@
 {
-  "name": "HP_TECH_CHALLENGE",
-  "version": "0.0.0",
+  "name": "com.unileon.hp",
+  "displayName": "hp-demo",
+  "version": "1.0.0",
+  "description": "HP Hackaton demo app",
+  "main": "index.js",
+  "author": "Programmatori team",
+  "license": "Apache-2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -27,14 +32,16 @@
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "@types/leaflet": "^1.7.9",
+    "@types/leaflet.utm": "0.0.1",
     "leaflet": "^1.8.0",
+    "leaflet.utm": "^1.0.0",
     "material-components-web": "^13.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.0.4",
+    "@angular-devkit/build-angular": "^13.3.3",
     "@angular-eslint/builder": "13.0.1",
     "@angular-eslint/eslint-plugin": "13.0.1",
     "@angular-eslint/eslint-plugin-template": "13.0.1",
@@ -60,5 +67,10 @@
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.24",
     "typescript": "~4.4.3"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
   }
 }

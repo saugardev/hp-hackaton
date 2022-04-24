@@ -8,10 +8,11 @@ collection = connection.Anthem.Accidentabilidad
 
 filePath = os.path.abspath(__file__)
 filePath += "/../../../../Datasets/Anthem_CTC_Accidentalidad.csv"
-dataset = pd.read_csv(filePath, sep=";", encoding="unicode_escape")
+dataset = pd.read_csv(filePath, sep=";", encoding="utf-8")
 
-dataset.drop(['num_expediente'], axis=1, inplace=True)
+
+dataset.drop(columns=['num_expediente', 'sexo', 'rango_edad'], inplace=True)
 data = dataset.to_dict(orient="records")
 print(data)
 
-#collection.insert_many(data)
+collection.insert_many(data)
