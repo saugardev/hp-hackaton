@@ -1,0 +1,45 @@
+version:"2.4"
+
+services:
+  lec_Accidentalidad:
+    build:
+      context: ../Microservices/Backend/Accidentalidad
+      dockerfile: Dockerfile
+    ports:
+      -"4500:4500"
+  lec_Patinetes:
+    build:
+      context: ../Microservices/Backend/AsigPatinetes
+      dockerfile: Dockerfile
+    ports:
+      -"4501:4501"
+  lec_ContaminacionAc:
+    build:
+      context: ../Microservices/Backend/ContaminacionAcustica
+      dockerfile: Dockerfile
+    ports:
+      -"4502:4502"
+  lec_Contenedores:
+    build:
+      context: ../Microservices/Backend/Contendores
+      dockerfile: Dockerfile
+    ports:
+      -"4503:4503"
+  lec_Trafico:
+    build:
+      context: ../Microservices/Backend/Trafico
+      dockerfile: Dockerfile
+    ports:
+      -"4504:4504"
+  lec_Ubicaciones:
+    build:
+      context: ../Microservices/Backend/Ubicaciones
+      dockerfile: Dockerfile
+    ports:
+      -"4505:4505"
+  api_front:
+    build:
+      context: ../Microservices/Frontend/API_FRONT
+      dockerfile: Dockerfile
+    ports:
+      -"3000:3000"

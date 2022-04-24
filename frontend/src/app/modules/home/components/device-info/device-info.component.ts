@@ -1,3 +1,4 @@
+import { HttpService } from './../../../../core/http/http.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
@@ -9,15 +10,38 @@ import { FormControl } from '@angular/forms';
 export class DeviceInfoComponent implements OnInit {
 
   public myControl = new FormControl();
-  options: string[] = ['Tipo 1', 'Tipo 2', 'Tipo 3'];
-
-  constructor() { }
+  public options: any = [];
+  public cardData = new Map();
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
+    this.setAccidentablididad();
+  }
+
+  private setAccidentablididad(): void {
+    this.httpService.accidentablididad.subscribe(res => {
+      const options = new Set();
+      for (const datum of res) {
+        if (datum.distrito !== null) {
+          options.add(datum.distrito);
+          if (this.cardData.has(datum.distrito)) {
+            this.cardData.set(datum.distrito, this.cardData.get(datum.distrito) + 1);
+          }
+          else {
+            this.cardData.set(datum.distrito, 1);
+          }
+        }
+      }
+      this.options = options;
+    });
   }
 
   public updateMap(): void {
-    console.log(this.myControl.value)
     this.myControl.reset();
+  }
+
+  public showIcons(distrito: string): void {
+    console.log(distrito);
+    this.httpService.icons.next(distrito);
   }
 }
