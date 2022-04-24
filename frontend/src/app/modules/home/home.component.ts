@@ -118,7 +118,7 @@ export class HomeComponent implements AfterViewInit {
         catch (e) {}
       }
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/marker.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0],
       });
@@ -141,7 +141,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/parada-de-autobus.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
@@ -163,7 +163,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/tren.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
@@ -185,7 +185,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/autobus.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
@@ -207,7 +207,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/contenedor-de-basura.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
@@ -229,7 +229,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/metro.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
@@ -251,7 +251,7 @@ export class HomeComponent implements AfterViewInit {
         disableClusteringAtZoom: 16
       });
       const icon = L.icon({
-        iconUrl: 'assets/marker.png',
+        iconUrl: 'assets/img/parada-de-taxi.png',
         iconSize: [30, 30],
         iconAnchor: [15, 0]
       })
